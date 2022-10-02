@@ -142,7 +142,7 @@ pub struct DownloadRequest<'a> {
     pub download: String,
 }
 impl<'a> DownloadRequest<'a> {
-    pub async fn send(self) -> anyhow::Result<serde_json::Value> {
+    pub async fn send(self) -> anyhow::Result<httpclient::Response> {
         let mut r = self
             .client
             .client
@@ -155,7 +155,7 @@ impl<'a> DownloadRequest<'a> {
             );
         let res = r.send().await.unwrap().error_for_status();
         match res {
-            Ok(res) => res.json().await.map_err(|e| anyhow::anyhow!("{:?}", e)),
+            Ok(res) => Ok(res),
             Err(res) => {
                 let text = res.text().await.map_err(|e| anyhow::anyhow!("{:?}", e))?;
                 Err(anyhow::anyhow!("{:?}", text))
