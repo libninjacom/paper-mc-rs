@@ -1,0 +1,100 @@
+[package]
+name = "paper-mc"
+edition = "2021"
+version = "0.1.0"
+description = "PaperMC client, generated from the OpenAPI spec."
+homepage = "https://github.com/libninjacom/paper-mc-rs"
+documentation = "https://docs.rs/paper-mc"
+readme = "README.md"
+license = "MIT"
+repository = "https://github.com/libninjacom/paper-mc-rs"
+
+[workspace]
+members = []
+
+[dependencies]
+anyhow = "1.0.57"
+httpclient = "0.6.0"
+serde_json = "1.0.81"
+
+[dependencies.serde]
+version = "1.0.137"
+features = ["derive"]
+optional = false
+[dev-dependencies.tokio]
+version = "1.18.2"
+features = ["full"]
+optional = false
+
+[lib]
+path = "src/lib.rs"
+name = "paper_mc"
+plugin = false
+proc-macro = false
+edition = "2021"
+crate-type = ["rlib"]
+required-features = []
+
+[[example]]
+path = "examples/build.rs"
+name = "build"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/builds.rs"
+name = "builds"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/download.rs"
+name = "download"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/family.rs"
+name = "family"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/family_builds.rs"
+name = "family_builds"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/project.rs"
+name = "project"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/projects.rs"
+name = "projects"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/version.rs"
+name = "version"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
